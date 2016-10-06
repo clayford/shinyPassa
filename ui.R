@@ -10,21 +10,21 @@ library(shiny)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Power and Sample Size Analysis - One-Sample Proportion"),
+  titlePanel("Sample Size Analysis - One-Sample Proportion"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
         sliderInput("p1",
-                  "First proportion:",
+                  "Alternate proportion:",
                   min = 0.01,
                   max = 0.99,
-                  value = 0.50),
+                  value = 0.60),
         sliderInput("p2",
-                  "Second proportion:",
+                  "Null proportion:",
                   min = 0.01,
                   max = 0.99,
-                    value = 0.60),
+                    value = 0.50),
         sliderInput("power",
                   "Power:",
                   min = 0.80,
@@ -35,7 +35,7 @@ shinyUI(fluidPage(
                   min = 0.01,
                   max = 0.2,
                   value = 0.05),
-        selectInput("alternative", label = h3("Alternative"), 
+        selectInput("alternative", "Alternative:", 
                   choices = list("two.sided" = "two.sided", "less" = "less", "greater" = "greater"), 
                   selected = 1)
     ),
